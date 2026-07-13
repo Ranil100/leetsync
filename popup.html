@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LeetPush</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --accent: #f0883e;
+      --accent2: #58a6ff;
+      --green: #3fb950;
+      --red: #f85149;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --radius: 8px;
+    }
+
+    body {
+      width: 360px;
+      min-height: 420px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+    }
+
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), #ff6b35);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 14px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .header-text p {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .status-badge {
+      margin-left: auto;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    .status-badge.connected { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+    .status-badge.disconnected { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+
+    .content { padding: 16px; }
+
+    .section { margin-bottom: 16px; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .input-group {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    input[type="text"], input[type="password"], select {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: var(--radius);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent2);
+    }
+
+    select option { background: var(--surface); }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .toggle-row:last-child { border-bottom: none; }
+
+    .toggle-label {
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .toggle-desc {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .toggle {
+      position: relative;
+      width: 34px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .toggle input { opacity: 0; width: 0; height: 0; }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--border);
+      border-radius: 18px;
+      transition: 0.2s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 12px; width: 12px;
+      left: 3px; bottom: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
+    input:checked + .slider { background: var(--accent); }
+    input:checked + .slider:before { transform: translateX(16px); }
+
+    .btn {
+      width: 100%;
+      padding: 9px;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: #e0773a; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+
+    .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 8px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-number.green { color: var(--green); }
+    .stat-number.orange { color: var(--accent); }
+    .stat-number.blue { color: var(--accent2); }
+
+    .stat-label {
+      font-size: 9px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .activity-item:last-child { border-bottom: none; }
+
+    .activity-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .activity-dot.success { background: var(--green); }
+    .activity-dot.pending { background: var(--accent); }
+
+    .activity-text {
+      flex: 1;
+      font-size: 11px;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .activity-time {
+      font-size: 10px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      flex-shrink: 0;
+    }
+
+    .tab-bar {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 8px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .toast {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      opacity: 0;
+      transition: all 0.3s;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.success { border-color: var(--green); color: var(--green); }
+    .toast.error { border-color: var(--red); color: var(--red); }
+
+    .help-link {
+      font-size: 10px;
+      color: var(--accent2);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .help-link:hover { text-decoration: underline; }
+
+    .empty-state {
+      text-align: center;
+      padding: 20px 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .empty-state .icon { font-size: 24px; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">&lt;/&gt;</div>
+    <div class="header-text">
+      <h1>LeetPush</h1>
+      <p>LeetCode → GitHub sync</p>
+    </div>
+    <span class="status-badge disconnected" id="statusBadge">NOT SET</span>
+  </div>
+
+  <div class="content">
+    <div class="tab-bar">
+      <button class="tab active" data-tab="dashboard">Dashboard</button>
+      <button class="tab" data-tab="settings">Settings</button>
+      <button class="tab" data-tab="log">Activity</button>
+    </div>
+
+    <!-- DASHBOARD TAB -->
+    <div class="tab-content active" id="tab-dashboard">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number green" id="statTotal">0</div>
+          <div class="stat-label">Synced</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number orange" id="statToday">0</div>
+          <div class="stat-label">Today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number blue" id="statStreak">0</div>
+          <div class="stat-label">Streak</div>
+        </div>
+      </div>
+
+      <div class="section-label">Last synced</div>
+      <div id="lastSyncedContainer">
+        <div class="empty-state">
+          <div class="icon">🔄</div>
+          No submissions synced yet.<br/>Solve a problem to get started!
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <button class="btn btn-secondary" id="openRepoBtn">📂 Open GitHub Repo</button>
+    </div>
+
+    <!-- SETTINGS TAB -->
+    <div class="tab-content" id="tab-settings">
+      <div class="section">
+        <div class="section-label">GitHub Configuration</div>
+        <div class="input-group">
+          <label>Personal Access Token <a class="help-link" id="tokenHelpLink">How to get?</a></label>
+          <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+        </div>
+        <div class="input-group">
+          <label>Repository (username/repo)</label>
+          <input type="text" id="githubRepo" placeholder="yourusername/leetcode-solutions" />
+        </div>
+        <div class="input-group">
+          <label>Branch</label>
+          <input type="text" id="githubBranch" placeholder="main" value="main" />
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-label">Folder Structure</div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);line-height:1.8;">
+          📁 228-summary-ranges/<br>
+          &nbsp;&nbsp;&nbsp;📄 solution.py<br>
+          &nbsp;&nbsp;&nbsp;📄 README.md
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-label">What to push</div>
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Solution File</div>
+            <div class="toggle-desc">e.g. two-sum.py / two-sum.js</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="pushCode" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">README.md</div>
+            <div class="toggle-desc">Problem description + examples</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="pushReadme" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="toggle-row">
+          <div>
+            <div class="toggle-label">Notifications</div>
+            <div class="toggle-desc">Show push success/fail alerts</div>
+          </div>
+          <label class="toggle">
+            <input type="checkbox" id="showNotifs" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <button class="btn btn-primary" id="saveSettingsBtn">Save Settings</button>
+      <button class="btn btn-secondary" id="testConnectionBtn">Test Connection</button>
+    </div>
+
+    <!-- ACTIVITY LOG TAB -->
+    <div class="tab-content" id="tab-log">
+      <div class="section-label">Recent pushes</div>
+      <div id="activityList">
+        <div class="empty-state">
+          <div class="icon">📋</div>
+          No activity yet.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <div style="text-align:center; padding: 10px 0 12px; font-size:11px; color:var(--muted);">
+    Made with ❤️ by Aahana
+  </div>
+
+  <script src="src/popup.js"></script>
+</body>
+</html>
