@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔄 LeetPush
+# 🔄 LeetSync
 
 **Automatically sync your LeetCode accepted solutions to GitHub**
 
