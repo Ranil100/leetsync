@@ -1,0 +1,10 @@
+# Don't commit zip builds
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
