@@ -39,6 +39,6 @@ Constraints:
 ---
 
 **Difficulty:** Easy  
-**Runtime:** 3 ms  
-**Memory:** 19.2 MB  
+**Runtime:** 0 ms  
+**Memory:** 19.3 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/happy-number/)
