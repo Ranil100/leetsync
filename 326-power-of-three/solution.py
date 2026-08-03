@@ -1,10 +1,9 @@
 # Power of Three
 # Difficulty: Easy
-# Runtime: 31 ms
+# Runtime: 13 ms
 # Memory: 19.2 MB
 # https://leetcode.com/problems/power-of-three/
 
-import math
 
 class Solution:
     def isPowerOfThree(self, n: int) -> bool:
