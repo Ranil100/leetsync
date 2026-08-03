@@ -5,7 +5,6 @@ Given an integer n, return true if it is a power of three. Otherwise, return fal
 An integer n is a power of three, if there exists an integer x such that n == 3x.
 
  
-
 Example 1:
 
 Input: n = 27
@@ -28,18 +27,18 @@ Explanation: There is no x where 3x = (-1).
 
 
  
-
 Constraints:
 
--231 <= n <= 231 - 1
+
+	-231 <= n <= 231 - 1
+
 
  
-
 Follow up: Could you solve it without loops/recursion?
 
 ---
 
 **Difficulty:** Easy  
-**Runtime:** 31 ms  
+**Runtime:** 13 ms  
 **Memory:** 19.2 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/power-of-three/)
