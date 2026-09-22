@@ -5,7 +5,6 @@ A phrase is a palindrome if, after converting all uppercase letters into lowerca
 Given a string s, return true if it is a palindrome, or false otherwise.
 
  
-
 Example 1:
 
 Input: s = "A man, a plan, a canal: Panama"
@@ -29,15 +28,15 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 
 
  
-
 Constraints:
 
-1 <= s.length <= 2 * 105
-s consists only of printable ASCII characters.
+
+	1 <= s.length <= 2 * 105
+	s consists only of printable ASCII characters.
 
 ---
 
 **Difficulty:** Easy  
-**Runtime:** 7 ms  
-**Memory:** 19.4 MB  
+**Runtime:** 6 ms  
+**Memory:** 19.7 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/valid-palindrome/)
