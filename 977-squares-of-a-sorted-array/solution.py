@@ -1,7 +1,7 @@
 # Squares of a Sorted Array
 # Difficulty: Easy
 # Runtime: 11 ms
-# Memory: 21.2 MB
+# Memory: 21.3 MB
 # https://leetcode.com/problems/squares-of-a-sorted-array/
 
 class Solution:
