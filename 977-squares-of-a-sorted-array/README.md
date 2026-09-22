@@ -33,5 +33,5 @@ Follow up: Squaring each element and sorting the new array is very trivial, coul
 
 **Difficulty:** Easy  
 **Runtime:** 11 ms  
-**Memory:** 21.2 MB  
+**Memory:** 21.3 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/squares-of-a-sorted-array/)
