@@ -1,7 +1,7 @@
 # Reverse Vowels of a String
 # Difficulty: Easy
 # Runtime: 7 ms
-# Memory: 20.6 MB
+# Memory: 20.5 MB
 # https://leetcode.com/problems/reverse-vowels-of-a-string/
 
         while left < right:
@@ -19,3 +19,6 @@
     def reverseVowels(self, s: str) -> str:
 
             while left < right and s[right] not in vowels:
+                right -= 1
+
+            s[left], s[right] = s[right], s[left]
