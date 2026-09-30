@@ -1,6 +1,6 @@
 # First Unique Character in a String
 # Difficulty: Easy
-# Runtime: 88 ms
+# Runtime: 91 ms
 # Memory: 19.6 MB
 # https://leetcode.com/problems/first-unique-character-in-a-string/
 
@@ -16,6 +16,5 @@
         for i in range(len(s)):
             if count[s[i]] == 1:
                 return i
-
-        return -1  
-
+    def firstUniqChar(self, s: str) -> int:
+class Solution:
