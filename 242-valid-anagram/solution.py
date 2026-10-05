@@ -1,9 +1,18 @@
 # Valid Anagram
 # Difficulty: Easy
-# Runtime: 10 ms
-# Memory: 19.4 MB
+# Runtime: 14 ms
+# Memory: 19.5 MB
 # https://leetcode.com/problems/valid-anagram/
 
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+
+        if len(s) != len(t):
+            return False
+
+        count = {}
+
+        for ch in s:
             if ch in count:
                 count[ch] += 1
             else:
@@ -11,13 +20,3 @@
 
         for ch in t:
             if ch in count:
-                count[ch] -= 1
-            else:
-                return False
-
-        for ch in count:
-            if count[ch] != 0:
-                return False
-
-        return True       
-                
