@@ -1,7 +1,7 @@
 # Valid Palindrome
 # Difficulty: Easy
-# Runtime: 6 ms
-# Memory: 19.7 MB
+# Runtime: 7 ms
+# Memory: 19.5 MB
 # https://leetcode.com/problems/valid-palindrome/
 
             while left < right and not s[left].isalnum():
@@ -13,10 +13,7 @@
             if s[left].lower() != s[right].lower():
                 return False
 
-        while left < right:
-
-        right = len(s) - 1
-
             left += 1
             right -= 1
 
+        return True  
