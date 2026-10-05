@@ -35,6 +35,6 @@ Constraints:
 ---
 
 **Difficulty:** Easy  
-**Runtime:** 7 ms  
-**Memory:** 20.5 MB  
+**Runtime:** 8 ms  
+**Memory:** 20.8 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/reverse-vowels-of-a-string/)
