@@ -1,10 +1,9 @@
 # Reverse String
 # Difficulty: Easy
-# Runtime: 1 ms
-# Memory: 23.6 MB
+# Runtime: 2 ms
+# Memory: 23.4 MB
 # https://leetcode.com/problems/reverse-string/
 
-class Solution:
     def reverseString(self, s: list[str]) -> None:
         """
         Do not return anything, modify s in-place instead.
