@@ -1,6 +1,6 @@
 # Valid Anagram
 # Difficulty: Easy
-# Runtime: 14 ms
+# Runtime: 11 ms
 # Memory: 19.4 MB
 # https://leetcode.com/problems/valid-anagram/
 
@@ -17,5 +17,8 @@
             if count[ch] != 0:
                 return False
 
-        return True       
-                
+                count[ch] += 1
+            if ch in count:
+        for ch in s:
+
+        count = {}
