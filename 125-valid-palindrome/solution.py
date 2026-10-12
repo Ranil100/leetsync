@@ -1,7 +1,7 @@
 # Valid Palindrome
 # Difficulty: Easy
 # Runtime: 7 ms
-# Memory: 19.7 MB
+# Memory: 19.6 MB
 # https://leetcode.com/problems/valid-palindrome/
 
 class Solution:
