@@ -9,6 +9,6 @@ class Solution:
         k = len(haystack) - len(needle)
 
         for i in range(k+1):
-            if haystack[i : i + len(needle)] == needle:
+            if haystack[i : i + len(needle)] == needle:  # string slicing
                 return i
         return -1
