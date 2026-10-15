@@ -1,9 +1,8 @@
 # Valid Palindrome
 # Difficulty: Easy
-# Runtime: 10 ms
-# Memory: 19.4 MB
+# Runtime: 8 ms
+# Memory: 19.6 MB
 # https://leetcode.com/problems/valid-palindrome/
-
 
             while left < right and not s[left].isalnum():
                 left += 1
@@ -13,10 +12,8 @@
 
             if s[left].lower() != s[right].lower():
                 return False
-        while left < right:
 
-        right = len(s) - 1
-        left = 0
-    
-    def isPalindrome(self, s: str) -> bool:
-class Solution:
+            left += 1
+            right -= 1
+
+        return True  
