@@ -22,6 +22,6 @@ Constraints:
 ---
 
 **Difficulty:** Easy  
-**Runtime:** 4 ms  
-**Memory:** 23.3 MB  
+**Runtime:** 3 ms  
+**Memory:** 23.4 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/reverse-string/)
