@@ -29,5 +29,5 @@ Constraints:
 
 **Difficulty:** Easy  
 **Runtime:** 0 ms  
-**Memory:** 19.2 MB  
+**Memory:** 19.3 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/detect-capital/)
