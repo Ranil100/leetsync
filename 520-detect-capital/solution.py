@@ -1,7 +1,7 @@
 # Detect Capital
 # Difficulty: Easy
 # Runtime: 0 ms
-# Memory: 19.2 MB
+# Memory: 19.3 MB
 # https://leetcode.com/problems/detect-capital/
 
         k = 0
