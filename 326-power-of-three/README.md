@@ -39,6 +39,6 @@ Follow up: Could you solve it without loops/recursion?
 ---
 
 **Difficulty:** Easy  
-**Runtime:** 13 ms  
-**Memory:** 19.2 MB  
+**Runtime:** 28 ms  
+**Memory:** 19.3 MB  
 **Link:** [LeetCode](https://leetcode.com/problems/power-of-three/)
